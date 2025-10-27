@@ -11,11 +11,13 @@
     html {
       box-sizing: border-box;
     }
+
     *,
     *:before,
     *:after {
       box-sizing: inherit;
     }
+
     body {
       background-color: #ECECEC;
       font-weight: bold;
@@ -23,44 +25,90 @@
       color: #FFF;
       text-align: center;
       line-height: 24px;
+      position: relative;
+      min-height: 100vh;
     }
+
     #wrapper {
       background-color: #FFF;
       border: 1px solid #c0c0c0;
-      width: 800px;
+      width: 900px;
+      height: 200px;
       margin-right: auto;
       margin-left: auto;
+      margin-top: 100px;
       text-shadow: 2px 2px #000;
+      position: relative;
     }
+
     #navy {
       background-color: #001f3f;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 70px;
     }
+
     #teal {
       background-color: #39CCCC;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-top: 70px;
     }
+
     #blue {
       background-color: #0074D9;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-top: 70px;
     }
+
     #aqua {
       background-color: #7FDBFF;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-top: 70px;
     }
+
     #footer {
       background-color: #666;
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding-top: 70px;
     }
+
     h1 {
       color: #000;
       font-weight: normal;
       padding: 50px;
+      position: relative;
+      z-index: 10;
     }
   </style>
 </head>
+
 <body>
-  <h1>Absolute 1</h1>
+  <div id="navy">Navy</div>
+  <div id="teal">Teal</div>
+  <div id="blue">Blue</div>
+  <div id="aqua">Aqua</div>
+  <h1>Exercise</h1>
   <section id="wrapper">
-    <div id="navy">Navy</div>
-    <div id="teal">Teal</div>
-    <div id="blue">Blue</div>
-    <div id="aqua">Aqua</div>
     <div id="footer">Footer</div>
   </section>
 </body>
