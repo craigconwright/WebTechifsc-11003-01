@@ -1,550 +1,364 @@
 /* ===========================================
-   NASA Mars Rovers - Student Project CSS
+   NASA Mars Rovers - Layout styled like CodePen
    Author: Craig Conwright
    =========================================== */
 
-/* ---------- CSS Reset & Box Sizing ---------- */
+/* ---------- Box Sizing ---------- */
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 *,
-*::before,
-*::after {
-    box-sizing: inherit;
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 /* ---------- Responsive Images ---------- */
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-/* ---------- CSS Variables (Custom Colors) ---------- */
+/* ---------- Color Theme / Fonts ---------- */
 :root {
-    --color-primary: #1a237e;       /* Deep space blue */
-    --color-secondary: #c62828;     /* Mars red */
-    --color-accent: #ff8f00;        /* Orange accent */
-    --color-dark: #0d1421;          /* Very dark blue */
-    --color-light: #f5f5f5;         /* Light gray */
-    --color-white: #ffffff;
-    --color-text: #333333;
-    --font-heading: 'Orbitron', sans-serif;
-    --font-body: 'Open Sans', sans-serif;
+  --color-primary: #1a237e;       /* Deep space blue */
+  --color-secondary: #c62828;     /* Mars red */
+  --color-accent: #ff8f00;        /* Orange accent */
+  --color-dark: #181c1f;          /* Dark background */
+  --color-light: #f2f2f2;         /* Light background */
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Open Sans", sans-serif;
 }
 
 /* ---------- Global Styles ---------- */
 body {
-    font-family: var(--font-body);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-light);
+  font-family: var(--font-body);
+  margin: 0;
+  background: var(--color-light);
+  color: var(--color-text);
 }
 
-/* ---------- Container ---------- */
+/* ---------- Utility: Container & Image Helpers ---------- */
 .container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+  width: 80vw;
+  margin: 40px auto;
+  max-width: 900px;
 }
 
-/* ---------- Header Styles ---------- */
-.main-header {
-    background-color: var(--color-dark);
-    text-align: center;
-    color: var(--color-white);
-    padding: 60px 20px;
-    position: relative;
+.img-center {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #c0c0c0;
+  padding: 5px;
 }
 
-/* Background overlay effect */
-.main-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("../img/mars-background.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
+/* ---------- Header / Hero ---------- */
+
+header.primary {
+  background-color: #181c1f;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px #000000;
+  padding: 6em 2em;
+  position: relative;
 }
 
-.main-header h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    margin: 0 0 10px 0;
-    position: relative;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+/* Background image overlay (use your local asset) */
+header.primary::before {
+  content: "";
+  background-image: url("../assets/img/mars-background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.4;
 }
 
-.main-header h1 a {
-    color: var(--color-white);
-    text-decoration: none;
+header.primary h1 {
+  font-size: 3.2rem;
+  margin: 20px 0;
+  position: relative;
+  font-family: var(--font-heading);
 }
 
-.main-header h1 a:hover {
-    color: var(--color-accent);
+/* Simple text logo (no background image logo) */
+header.primary h1 a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.main-header h2 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin: 0 0 30px 0;
-    position: relative;
-    color: var(--color-accent);
+header.primary h1 a:hover {
+  color: var(--color-accent);
+}
+
+header.primary h2 {
+  font-family: var(--font-heading);
+  font-size: 2em;
+  margin: 20px auto 40px;
+  position: relative;
+  color: var(--color-accent);
 }
 
 /* ---------- Navigation ---------- */
-.main-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    position: relative;
+
+header.primary nav ul {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
-.main-header nav li {
-    margin: 5px;
+header.primary nav li {
+  list-style-type: none;
+  padding: 0;
+  width: 25%;
 }
 
-.main-header nav a {
-    color: var(--color-white);
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: rgba(198, 40, 40, 0.7);
-    border-radius: 5px;
-    display: block;
-    transition: background-color 0.3s ease;
+header.primary nav a:link,
+header.primary nav a:visited {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(198, 40, 40, 0.7);
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: 0.6s;
+  display: block;
+  text-align: center;
 }
 
-.main-header nav a:hover,
-.main-header nav a:focus,
-.main-header nav a.active {
-    background-color: var(--color-secondary);
+header.primary nav a:hover,
+header.primary nav a:active,
+header.primary nav a.active {
+  background-color: var(--color-secondary);
 }
 
-/* ---------- Welcome Section ---------- */
-#welcome {
-    background-color: var(--color-white);
+/* ---------- Intro / Content ---------- */
+
+section#content {
+  padding: 4em 0;
+  background: var(--color-white);
 }
 
-#welcome h2 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+section#content h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#welcome p {
-    margin-bottom: 15px;
+/* ---------- Rover Articles (Cards) ---------- */
+
+section#articles {
+  background: #181c1f;
 }
 
-/* ---------- Rovers Section ---------- */
-#rovers {
-    background-color: var(--color-dark);
-    padding: 20px 0;
+section#articles .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 0 0 4em 0;
 }
 
-#rovers .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+section#articles h2,
+#content h2 {
+  flex: 0 0 100%;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 2em;
 }
 
-#rovers h2 {
-    width: 100%;
-    text-align: center;
-    font-family: var(--font-heading);
-    color: var(--color-white);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+section#articles h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px #000;
 }
 
-/* ---------- Rover Cards ---------- */
-.rover-card {
-    background-color: var(--color-white);
-    border-radius: 10px;
-    padding: 15px;
-    width: 30%;
-    min-width: 280px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+#articles article.post {
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  transition: 0.6s;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
-.rover-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+#articles article.post h2 {
+  font-size: 1.4em;
+  text-shadow: none;
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
 }
 
-.rover-card figure {
-    margin: 0 0 15px 0;
+#articles article.post:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.rover-card img {
-    border-radius: 8px;
-    width: 100%;
+#articles article figcaption {
+  font-size: 0.8em;
+  color: #777;
+  text-transform: uppercase;
+  margin-top: 5px;
 }
 
-.rover-card figcaption {
-    font-size: 0.8rem;
-    color: #777;
-    text-transform: uppercase;
-    margin-top: 5px;
+#articles .post a:link,
+#articles .post a:visited {
+  color: var(--color-secondary);
+  text-decoration: none;
 }
 
-.rover-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    margin: 0 0 10px 0;
+#articles .post a:hover {
+  color: var(--color-accent);
 }
 
-.rover-card h3 a {
-    color: var(--color-secondary);
-    text-decoration: none;
+#articles .post figure {
+  margin: 0 0 10px 0;
 }
 
-.rover-card h3 a:hover {
-    color: var(--color-accent);
+#articles .post img {
+  border-radius: 10px;
 }
 
-.rover-card p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+#articles ul {
+  padding: 0 20px 10px 20px;
 }
 
-/* ---------- Hero Image ---------- */
+#articles li {
+  margin-bottom: 10px;
+}
+
+/* ---------- Hero Image Section ---------- */
+
 #hero {
-    text-align: center;
-    background-color: var(--color-white);
+  padding: 4em 0;
+  background: var(--color-white);
 }
 
-.hero-image {
-    border: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 5px;
-    max-width: 100%;
-}
+/* ---------- Aside / Widgets ---------- */
 
-/* ---------- Aside / Sidebar ---------- */
-aside {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 20px 0;
+aside[role="complementary"] {
+  background-color: #181c1f;
+  color: #ffffff;
+  padding: 2.5em 0;
 }
 
 aside .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 40px;
 }
 
-.info-box {
-    flex: 1;
-    min-width: 280px;
+aside article.widget {
+  flex: 1;
 }
 
-.info-box h2 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--color-accent);
+aside article header h2 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
-.info-box p {
-    margin-bottom: 15px;
+.widget.overview table {
+  font-size: 0.9em;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.info-box a {
-    color: var(--color-accent);
+.widget.overview table td {
+  border-bottom: 1px solid #fff;
+  padding: 10px;
 }
 
-.info-box a:hover {
-    color: var(--color-white);
+.widget.overview table td:nth-child(even) {
+  text-align: right;
 }
 
-/* ---------- Tables ---------- */
-.info-box table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
+aside article a:link,
+aside article a:visited {
+  color: var(--color-accent);
+  display: block;
+  margin-top: 1.2em;
+  letter-spacing: 1.2px;
 }
 
-.info-box table td {
-    padding: 8px 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+aside article a:hover,
+aside article a:active {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.info-box table td:last-child {
-    text-align: right;
-}
-
-/* Comparison Table (history page) */
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background-color: var(--color-white);
-}
-
-.comparison-table th {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 12px 10px;
-    text-align: left;
-}
-
-.comparison-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.comparison-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.comparison-table tr:hover {
-    background-color: #e3f2fd;
-}
-
-/* ---------- Mission Details (history page) ---------- */
-.mission-detail {
-    margin-bottom: 40px;
-    overflow: hidden;
-}
-
-.mission-detail h4 {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--color-primary);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 10px;
-}
-
-.float-right {
-    float: right;
-    margin: 0 0 15px 20px;
-    max-width: 300px;
-    border-radius: 8px;
-}
-
-/* ---------- FAQ Section ---------- */
-#faq {
-    background-color: var(--color-white);
-}
-
-#faq h2 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
-
-.faq-item {
-    margin-bottom: 25px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #ddd;
-}
-
-.faq-item:last-of-type {
-    border-bottom: none;
-}
-
-.faq-item h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--color-secondary);
-    margin-bottom: 10px;
-}
-
-/* ---------- Contact Form ---------- */
-#contact {
-    background-color: var(--color-light);
-}
-
-#contact h2 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-#contact-form {
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.required {
-    color: var(--color-secondary);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: var(--font-body);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 5px rgba(26, 35, 126, 0.3);
-}
-
-#submit-btn {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
-    padding: 12px 30px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#submit-btn:hover {
-    background-color: var(--color-primary);
-}
-
-#form-response {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-#form-response.success {
-    background-color: #c8e6c9;
-    color: #2e7d32;
-}
-
-#form-response.error {
-    background-color: #ffcdd2;
-    color: #c62828;
-}
-
-.hidden {
-    display: none;
+aside article footer {
+  display: none; /* Hidden like the CodePen demo */
 }
 
 /* ---------- Footer ---------- */
-#site-footer {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    text-align: center;
-    padding: 20px;
+
+footer#colophon {
+  background-color: #593122;
 }
 
-#site-footer p {
-    margin: 5px 0;
-    font-size: 0.9rem;
+#colophon h6 {
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
-#site-footer a {
-    color: var(--color-accent);
-}
-
-#site-footer a:hover {
-    color: var(--color-white);
-}
-
-/* ---------- Intro Section ---------- */
-#intro {
-    background-color: var(--color-white);
-}
-
-#intro h2 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-#comparison h3,
-#missions h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+#colophon h6 a:link,
+#colophon h6 a:visited,
+#colophon p {
+  color: #fff;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto 10px;
+  font-size: 0.85rem;
 }
 
 /* ---------- Responsive Design ---------- */
-@media screen and (max-width: 768px) {
-    .main-header h1 {
-        font-size: 1.8rem;
-    }
 
-    .main-header h2 {
-        font-size: 1rem;
-    }
+@media screen and (max-width: 600px) {
+  header.primary nav ul {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+  }
 
-    .main-header nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  header.primary nav ul li {
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 300px;
+  }
 
-    .main-header nav li {
-        width: 80%;
-        max-width: 300px;
-    }
+  header.primary nav ul li a {
+    display: block;
+  }
 
-    .main-header nav a {
-        text-align: center;
-    }
+  section#articles .container {
+    flex-direction: column;
+    padding-bottom: 4em;
+  }
 
-    #rovers .container {
-        flex-direction: column;
-        align-items: center;
-    }
+  #articles article.post {
+    width: 100%;
+    margin-bottom: 2em;
+  }
 
-    .rover-card {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    aside .container {
-        flex-direction: column;
-    }
-
-    .float-right {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        max-width: 100%;
-    }
-
-    .comparison-table {
-        font-size: 0.8rem;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-        padding: 6px 4px;
-    }
+  aside .container {
+    flex-direction: column;
+  }
 }
