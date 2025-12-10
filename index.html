@@ -23,7 +23,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
       color: #0f172a;
-      background-color: #020617; /* dark base instead of image */
+      background-color: #020617;
       position: relative;
     }
 
@@ -31,11 +31,9 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.8),
-        rgba(30, 64, 175, 0.7)
-      );
+      background: linear-gradient(135deg,
+          rgba(15, 23, 42, 0.8),
+          rgba(30, 64, 175, 0.7));
       z-index: -1;
     }
 
@@ -155,11 +153,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(
-        circle at 0 0,
-        rgba(59, 130, 246, 0.18),
-        transparent 55%
-      );
+      background: radial-gradient(circle at 0 0,
+          rgba(59, 130, 246, 0.18),
+          transparent 55%);
       opacity: 0;
       transition: opacity 0.2s ease;
     }
@@ -184,6 +180,13 @@
 
     .highlight {
       border: 1px solid rgba(59, 130, 246, 0.6);
+    }
+
+    /* Make whole card clickable (for anchor cards) */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
     /* Buttons & links */
@@ -239,7 +242,7 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 
-    .reflection-block + .reflection-block {
+    .reflection-block+.reflection-block {
       margin-top: 2rem;
     }
 
@@ -272,11 +275,9 @@
 
     /* Alt theme when button is clicked */
     body.alt-theme .overlay {
-      background: linear-gradient(
-        130deg,
-        rgba(190, 24, 93, 0.8),
-        rgba(79, 70, 229, 0.8)
-      );
+      background: linear-gradient(130deg,
+          rgba(190, 24, 93, 0.8),
+          rgba(79, 70, 229, 0.8));
     }
 
     body.alt-theme .interest-card {
@@ -339,30 +340,28 @@
     </section>
 
     <section class="grid">
-      <article class="card">
+      <!-- Full-card links -->
+      <a href="prototype/index.html" class="card card-link">
         <h3>Prototype Assignment</h3>
-        <a href="prototype/index.html" class="btn">View Prototype</a>
-      </article>
+        <span class="btn">View Prototype</span>
+      </a>
 
-      <article class="card">
+      <a href="css-demo/index.html" class="card card-link">
         <h3>CSS Demo</h3>
-        <a href="css-demo/index.html" class="btn" title="CSS Demo Project">View CSS Demo</a>
-      </article>
+        <span class="btn" title="CSS Demo Project">View CSS Demo</span>
+      </a>
 
-      <article class="card">
+      <a href="flexboxfroggycompletion.jpg" class="card card-link" title="Flexbox Froggy Completion">
         <h3>Flexbox Froggy</h3>
-        <a href="flexboxfroggycompletion.jpg" class="btn" title="Flexbox Froggy Completion" target="_blank">
-          Flexbox Completion
-        </a>
-      </article>
+        <span class="btn">Flexbox Completion</span>
+      </a>
 
-      <article class="card">
+      <a href="CCSGridgarden.jpeg" class="card card-link" title="CSS Grid Garden Completion">
         <h3>Grid Garden</h3>
-        <a href="CCSGridgarden.jpeg" class="btn" title="CSS Grid Garden Completion" target="_blank">
-          Grid Completion
-        </a>
-      </article>
+        <span class="btn">Grid Completion</span>
+      </a>
 
+      <!-- Position Lab: separate pills -->
       <article class="card card-wide">
         <h3>Position Lab</h3>
         <ul class="inline-links">
@@ -373,6 +372,7 @@
         </ul>
       </article>
 
+      <!-- CSS Grid Lab: separate pills -->
       <article class="card card-wide">
         <h3>CSS Grid Lab</h3>
         <ul class="inline-links">
@@ -383,18 +383,17 @@
         </ul>
       </article>
 
-      <article class="card highlight">
+      <a href="Mars-v1/" class="card highlight card-link">
         <h3>Mars Draft Project</h3>
-        <a href="Mars-v1/" class="btn">Mars Draft</a>
-      </article>
+        <span class="btn">Mars Draft</span>
+      </a>
 
-      <article class="card highlight">
+      <a href="Mars-v2/" class="card highlight card-link">
         <h3>Mars Final Project</h3>
-        <a href="Mars-v2/" class="btn">Mars Final</a>
-      </article>
+        <span class="btn">Mars Final</span>
+      </a>
     </section>
 
-    <!-- Reflection panel -->
     <section class="reflection-section">
       <article class="reflection-block">
         <h2>Dragon Project Revision and Reflection</h2>
@@ -418,18 +417,21 @@
         <h2>Thoughts on Progressive Enhancement</h2>
         <hr>
         <p>
-          Progressive enhancement is a way of building for the web that starts with a dependable, accessible core and then gently layers on visual polish and richer interactions as the browser and device allow. At the base, you deliver clean HTML so that content and key tasks work even on older phones, slow connections, or assistive technologies. From there, you add CSS for layout and styling, and only then introduce JavaScript for features like dynamic forms, live validation, or smooth navigation, always treating those extras as enhancements rather than requirements.
+          Progressive enhancement is a way of building for the web that starts with a dependable, accessible core and then gently
+          layers on visual polish and richer interactions as the browser and device allow. At the base, you deliver clean HTML so
+          that content and key tasks work even on older phones, slow connections, or assistive technologies. From there, you add
+          CSS for layout and styling, and only then introduce JavaScript for features like dynamic forms, live validation, or smooth
+          navigation, always treating those extras as enhancements rather than requirements.
         </p>
         <p>
-          In today’s landscape—where users arrive from every kind of network, browser, and screen size—this
-          mindset matters more than ever. It keeps experiences fast and resilient, improves accessibility and
-          SEO, and reduces the risk of a blank or broken page when a script fails, an ad blocker intervenes,
-          or a network request times out. For teams, it encourages cleaner separation of concerns and makes
-          projects easier to maintain, test, and evolve over time. For users, it simply feels respectful:
-          they get a site that loads quickly, lets them do what they came to do, and quietly gets better when
-          their device can support it. In that sense, progressive enhancement is less a nostalgic best practice
-          and more a modern, people-first strategy for building durable web experiences that hold up well
-          beyond the next framework trend, and keep serving people gracefully as the web keeps changing.
+          In today’s landscape—where users arrive from every kind of network, browser, and screen size—this mindset matters more
+          than ever. It keeps experiences fast and resilient, improves accessibility and SEO, and reduces the risk of a blank or
+          broken page when a script fails, an ad blocker intervenes, or a network request times out. For teams, it encourages
+          cleaner separation of concerns and makes projects easier to maintain, test, and evolve over time. For users, it simply
+          feels respectful: they get a site that loads quickly, lets them do what they came to do, and quietly gets better when
+          their device can support it. In that sense, progressive enhancement is less a nostalgic best practice and more a modern,
+          people-first strategy for building durable web experiences that hold up well beyond the next framework trend, and keep
+          serving people gracefully as the web keeps changing.
         </p>
         <p>
           “Progressive Enhancement in 2025: Is It Still Relevant?”
@@ -446,7 +448,6 @@
   </footer>
 
   <script>
-    // Simple interactive color theme toggle
     const toggleBtn = document.getElementById('colorToggle');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('alt-theme');
@@ -455,3 +456,4 @@
 </body>
 
 </html>
+
