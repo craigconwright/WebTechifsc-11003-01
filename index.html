@@ -4,64 +4,454 @@
 <head>
   <meta charset="utf-8">
   <title>IFSC 11003 - Web Technology | Craig Conwright</title>
-  <meta name="description" content="Keyword Rich Description">
+  <meta name="description" content="Web Technology Portfolio for Craig Conwright">
   <meta name="author" content="Craig Conwright">
-  <link href="assets/css/style.css" rel="stylesheet" />
+
   <style>
+    /* Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background */
     body {
-      background-image: url('rainydays.jpg');
-      background-size: cover;
-      font-weight: bold;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: #0f172a;
+      background-color: #020617; /* dark base instead of image */
+      position: relative;
     }
 
-    h1 {
+    /* Dark overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.8),
+        rgba(30, 64, 175, 0.7)
+      );
+      z-index: -1;
+    }
+
+    /* Layout wrappers */
+    .site-header,
+    .content,
+    .site-footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      color: white;
+    }
+
+    .brand h1 {
+      font-size: 2.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      opacity: 0.85;
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.5);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Theme toggle button */
+    .fun-toggle {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.6);
+      background: rgba(15, 23, 42, 0.3);
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 0.85rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .fun-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+      background: rgba(37, 99, 235, 0.7);
+    }
+
+    /* Interests row */
+    .interests {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #e5e7eb;
+    }
+
+    .interests h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .interest-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .interest-card {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.5);
+    }
+
+    .interest-card .icon {
+      font-size: 1.1rem;
+    }
+
+    /* Project grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: rgba(248, 250, 252, 0.96);
+      border-radius: 1rem;
+      padding: 1.1rem 1.25rem 1.25rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 0 0,
+        rgba(59, 130, 246, 0.18),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.35);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-wide {
+      grid-column: span 2;
+    }
+
+    .highlight {
+      border: 1px solid rgba(59, 130, 246, 0.6);
+    }
+
+    /* Buttons & links */
+    .btn {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: #1d4ed8;
+      color: #f9fafb;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.4);
+    }
+
+    .inline-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+    }
+
+    .inline-links a {
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: #1f2937;
+      background: #e5e7eb;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.12s ease, transform 0.12s ease;
+    }
+
+    .inline-links a:hover {
+      background: #d1d5db;
+      transform: translateY(-1px);
+    }
+
+    /* Reflection section (dark writing panel) */
+    .reflection-section {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .reflection-block + .reflection-block {
+      margin-top: 2rem;
+    }
+
+    .reflection-block h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .reflection-block hr {
+      border: none;
+      border-top: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 0.9rem;
+    }
+
+    .reflection-block p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      color: #cbd5f5;
       text-align: center;
-      font-weight: bold;
-      color: black;
+      font-size: 0.85rem;
+      padding-bottom: 2rem;
+      opacity: 0.9;
     }
 
-    nav {
-      padding: 20px;
-      color: red;
+    /* Alt theme when button is clicked */
+    body.alt-theme .overlay {
+      background: linear-gradient(
+        130deg,
+        rgba(190, 24, 93, 0.8),
+        rgba(79, 70, 229, 0.8)
+      );
     }
 
-    nav a {
-      color: red;
+    body.alt-theme .interest-card {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    body.alt-theme .card {
+      background: rgba(250, 250, 250, 0.98);
+    }
+
+    /* Small screens */
+    @media (max-width: 640px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card-wide {
+        grid-column: span 1;
+      }
+
+      .interests {
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>Craig Conwright</h1>
-  <nav>
-    <ul>
-      <li><a href="prototype/index.html">Craigs Prototype Assignment</a></li>
-      <li><a href="css-demo/index.html"> CSS Demo Project</a></li>
-      <li>Position Lab
-        <ul>
-          <li><a href="positioning-lab/float-1.html">Float-1</a></li>
-          <li><a href="positioning-lab/float-2.html">Float-2</a></li>
-          <li><a href="positioning-lab/absolute-1.html">Absolute-1</a></li>
-          <li><a href="positioning-lab/absolute-2.html">Absolute-2</a></li>
+  <div class="overlay"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-tag">IFSC 11003</span>
+      <h1>Craig Conwright</h1>
+      <p class="subtitle">Web Technology · Class Projects</p>
+    </div>
+    <button class="fun-toggle" id="colorToggle" type="button">
+      Change Vibe
+    </button>
+  </header>
+
+  <main class="content">
+    <section class="interests">
+      <h2>Things I’m into</h2>
+      <div class="interest-grid">
+        <div class="interest-card">
+          <span class="icon">👟</span>
+          <p>Jordans</p>
+        </div>
+        <div class="interest-card">
+          <span class="icon">🎮</span>
+          <p>Video Games</p>
+        </div>
+        <div class="interest-card">
+          <span class="icon">✈️</span>
+          <p>Traveling</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Prototype Assignment</h3>
+        <a href="prototype/index.html" class="btn">View Prototype</a>
+      </article>
+
+      <article class="card">
+        <h3>CSS Demo</h3>
+        <a href="css-demo/index.html" class="btn" title="CSS Demo Project">View CSS Demo</a>
+      </article>
+
+      <article class="card">
+        <h3>Flexbox Froggy</h3>
+        <a href="flexboxfroggycompletion.jpg" class="btn" title="Flexbox Froggy Completion" target="_blank">
+          Flexbox Completion
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Grid Garden</h3>
+        <a href="CCSGridgarden.jpeg" class="btn" title="CSS Grid Garden Completion" target="_blank">
+          Grid Completion
+        </a>
+      </article>
+
+      <article class="card card-wide">
+        <h3>Position Lab</h3>
+        <ul class="inline-links">
+          <li><a href="positioning-lab/float-1.html">Float 1</a></li>
+          <li><a href="positioning-lab/float-2.html">Float 2</a></li>
+          <li><a href="positioning-lab/absolute-1.html">Absolute 1</a></li>
+          <li><a href="positioning-lab/absolute-2.html">Absolute 2</a></li>
         </ul>
-      <li><a href="flexboxfroggycompletion.jpg" title="Flexbox Froggy Completion">Flexbox Froggy</a></li>
-      <li><a href="">CSS Diner</a></li>
-      <li><a href="CCSGridgarden.jpeg" title="CCS Grid Garden Completion">Grid Garden</a></li>
-     
-      </li>
-      <li>CSS Grid Lab
-        <ul>
+      </article>
+
+      <article class="card card-wide">
+        <h3>CSS Grid Lab</h3>
+        <ul class="inline-links">
           <li><a href="css-grid-lab/grid-two-col-left.html">2 Col - Left</a></li>
           <li><a href="css-grid-lab/grid-two-col-equal.html">2 Col - Equal</a></li>
           <li><a href="css-grid-lab/grid-two-col-right.html">2 Col - Right</a></li>
           <li><a href="css-grid-lab/grid-two-col-stacked.html">2 Col - Stacked</a></li>
         </ul>
-      </li>
-      <li><a href="">Mars Draft</a></li>
-       <li><a href="Mars-v1/">Mars Rover Revised Final</a></li>
-       <li><a href="">Cycle Lab Image Slideshow</a></li>
-    </ul>
-  </nav>
+      </article>
+
+      <article class="card highlight">
+        <h3>Mars Draft Project</h3>
+        <a href="Mars-v1/" class="btn">Mars Draft</a>
+      </article>
+
+      <article class="card highlight">
+        <h3>Mars Final Project</h3>
+        <a href="Mars-v2/" class="btn">Mars Final</a>
+      </article>
+    </section>
+
+    <!-- Reflection panel -->
+    <section class="reflection-section">
+      <article class="reflection-block">
+        <h2>Dragon Project Revision and Reflection</h2>
+        <hr>
+        <p>
+          In this assignment I ask that you collect feedback from a peer, family member, or a friend
+          on your first attempt at the Dragon or Segway project. Using that feedback, I'd like you to
+          attempt to address any issues or problems pointed out by your potential users. You should
+          provide a link to the revised project (duplicate the directory in aws and then add a link
+          to the revised project). You should also provide several paragraphs reflecting on the
+          learning experience working on this project and your experience during the semester.
+        </p>
+        <p>
+          What were the things you did well? What would you do differently if you had to start over?
+          Also report on the feedback you received and what you did to address those issues or why
+          you chose not to make the recommended changes.
+        </p>
+      </article>
+
+      <article class="reflection-block">
+        <h2>Thoughts on Progressive Enhancement</h2>
+        <hr>
+        <p>
+          Progressive enhancement is a way of building for the web that starts with a dependable, accessible core and then gently layers on visual polish and richer interactions as the browser and device allow. At the base, you deliver clean HTML so that content and key tasks work even on older phones, slow connections, or assistive technologies. From there, you add CSS for layout and styling, and only then introduce JavaScript for features like dynamic forms, live validation, or smooth navigation, always treating those extras as enhancements rather than requirements.
+        </p>
+        <p>
+          In today’s landscape—where users arrive from every kind of network, browser, and screen size—this
+          mindset matters more than ever. It keeps experiences fast and resilient, improves accessibility and
+          SEO, and reduces the risk of a blank or broken page when a script fails, an ad blocker intervenes,
+          or a network request times out. For teams, it encourages cleaner separation of concerns and makes
+          projects easier to maintain, test, and evolve over time. For users, it simply feels respectful:
+          they get a site that loads quickly, lets them do what they came to do, and quietly gets better when
+          their device can support it. In that sense, progressive enhancement is less a nostalgic best practice
+          and more a modern, people-first strategy for building durable web experiences that hold up well
+          beyond the next framework trend, and keep serving people gracefully as the web keeps changing.
+        </p>
+        <p>
+          “Progressive Enhancement in 2025: Is It Still Relevant?”
+          <a href="https://dev.to/dct_technology/progressive-enhancement-in-2025-is-it-still-relevant-5mo" target="_blank">
+            https://dev.to/dct_technology/progressive-enhancement-in-2025-is-it-still-relevant-5mo
+          </a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Craig C · Web Tech Portfolio</p>
+  </footer>
+
+  <script>
+    // Simple interactive color theme toggle
+    const toggleBtn = document.getElementById('colorToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('alt-theme');
+    });
+  </script>
 </body>
 
 </html>
