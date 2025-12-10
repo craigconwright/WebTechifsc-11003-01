@@ -1,156 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>NASA Mars Rovers | Home</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover NASA's Mars Rover missions - robotic explorers searching for signs of ancient life on the Red Planet" />
-  <meta name="keywords" content="NASA, Mars, rovers, Perseverance, Curiosity, Spirit, space exploration" />
-  <meta name="author" content="Craig Conwright" />
-  <meta name="robots" content="noindex" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore NASA's Mars Rovers - Robotic explorers on the Red Planet">
+    <meta name="author" content="Your Name Here">
+    <meta name="robots" content="noindex">
+    <title>NASA Mars Rovers - Home</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- Header / Hero -->
-  <header role="banner" class="primary">
-    <h1><a href="index.html">NASA Mars Rovers</a></h1>
-    <h2>Robotic Explorers on the Red Planet</h2>
-    <nav role="navigation" aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="history.html">Mission History</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-content">
+            <h1>NASA Mars Rovers</h1>
+            <p class="tagline">Robotic Explorers on the Red Planet</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="history.html">Mission History</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Intro / Welcome -->
-  <section id="content" class="container">
-    <h2>Unlocking the Secrets of Mars</h2>
-    <p>Since 1997, NASA has deployed a fleet of robotic vehicles to traverse the dusty, crater-filled terrain of Mars. These remarkable machines serve as our eyes, ears, and hands on a world millions of miles away.</p>
-    <p>Each rover carries sophisticated scientific instruments designed to analyze rocks, study the atmosphere, and search for evidence that Mars may have once supported microbial life. Their discoveries have transformed our understanding of the fourth planet from the Sun.</p>
-    <p>Explore this site to learn about the incredible engineering behind these missions, the groundbreaking science they've accomplished, and what lies ahead for Mars exploration.</p>
-  </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <div class="container">
+                <h2>Welcome to the Red Planet</h2>
+                <p>For decades, NASA has been exploring the mysteries of Mars, sending robotic rovers across its rocky terrain in search of answers to some of humanity's biggest questions: Is there life beyond Earth? What can Mars teach us about our own planet?</p>
+                
+                <p>From the groundbreaking Pathfinder mission in 1997 to the cutting-edge Perseverance rover currently traversing Jezero Crater, these robotic explorers have revolutionized our understanding of the Red Planet. Each mission has built upon the last—testing new technologies, uncovering signs of ancient water, and paving the way for future human exploration.</p>
+                
+                <p>This site is your launchpad into the world of NASA's Mars rovers. Learn about the design and goals of each mission, discover the incredible science they've uncovered, and find out how these trailblazing robots are helping write the next chapter in space exploration.</p>
+            </div>
+        </section>
 
-  <!-- Rover Cards -->
-  <section id="articles">
-    <div class="container">
-      <h2>Meet the Rovers</h2>
+        <!-- Featured Rovers Section -->
+        <section class="rovers">
+            <div class="container">
+                <h2>Featured Rovers</h2>
+                <div class="rover-grid">
+                    <!-- Curiosity -->
+                    <div class="rover-card">
+                        <img src="img/curiosity.jpg" alt="Curiosity Rover on Mars">
+                        <h3>Curiosity</h3>
+                        <p><strong>Launch:</strong> November 26, 2011</p>
+                        <p><strong>Landing:</strong> August 6, 2012</p>
+                        <p>Curiosity is exploring Gale Crater and has made groundbreaking discoveries about Mars' past habitability.</p>
+                        <a href="history.html#curiosity" class="btn">Learn More</a>
+                    </div>
 
-      <article class="post">
-        <header>
-          <figure>
-            <img src="assets/img/perseverance.jpg" alt="The Perseverance rover on the Martian surface with its robotic arm extended" />
-            <figcaption>Perseverance</figcaption>
-          </figure>
-          <h2><a href="history.html" rel="bookmark" title="Learn more about Perseverance">Perseverance</a></h2>
-        </header>
-        <ul>
-          <li>Landed in February 2021, Perseverance is the most advanced rover ever sent to Mars.</li>
-          <li>It carries the Ingenuity helicopter and is collecting samples for a future return mission to Earth.</li>
-          <li>Currently exploring Jezero Crater, an ancient river delta believed to have once held water.</li>
-        </ul>
-      </article>
+                    <!-- Perseverance -->
+                    <div class="rover-card">
+                        <img src="img/perseverance.jpg" alt="Perseverance Rover on Mars">
+                        <h3>Perseverance</h3>
+                        <p><strong>Launch:</strong> July 30, 2020</p>
+                        <p><strong>Landing:</strong> February 18, 2021</p>
+                        <p>The newest rover, searching for signs of ancient microbial life in Jezero Crater.</p>
+                        <a href="history.html#perseverance" class="btn">Learn More</a>
+                    </div>
 
-      <article class="post">
-        <header>
-          <figure>
-            <img src="assets/img/curiosity.jpg" alt="The Curiosity rover taking a selfie showing its cameras and instruments" />
-            <figcaption>Curiosity</figcaption>
-          </figure>
-          <h2><a href="history.html" rel="bookmark" title="Learn more about Curiosity">Curiosity</a></h2>
-        </header>
-        <ul>
-          <li>Operating since August 2012 in Gale Crater on Mars.</li>
-          <li>First rover to determine that Mars once had conditions favorable for microbial life.</li>
-          <li>Discovered evidence of an ancient streambed where water once flowed.</li>
-        </ul>
-      </article>
+                    <!-- Opportunity -->
+                    <div class="rover-card">
+                        <img src="img/opportunity.jpg" alt="Opportunity Rover on Mars">
+                        <h3>Opportunity</h3>
+                        <p><strong>Launch:</strong> July 7, 2003</p>
+                        <p><strong>Landing:</strong> January 25, 2004</p>
+                        <p>Opportunity exceeded all expectations, operating for nearly 15 years on the Martian surface.</p>
+                        <a href="history.html#opportunity" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <article class="post">
-        <header>
-          <figure>
-            <img src="assets/img/spirit.jpg" alt="Artist rendering of the Spirit rover on the red Martian landscape" />
-            <figcaption>Spirit</figcaption>
-          </figure>
-          <h2><a href="history.html" rel="bookmark" title="Learn more about Spirit">Spirit</a></h2>
-        </header>
-        <ul>
-          <li>One of the twin Mars Exploration Rovers, active from 2004 to 2010.</li>
-          <li>Far exceeded its planned 90-day mission on the Martian surface.</li>
-          <li>Found compelling evidence of past water activity and traveled over 4.8 miles.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+        <!-- Mission Stats -->
+        <section class="stats">
+            <div class="container">
+                <h2>Mars Exploration by the Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h3>5</h3>
+                        <p>Successful Rovers</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>225M</h3>
+                        <p>Miles to Mars</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>687</h3>
+                        <p>Earth Days per Mars Year</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>24h 37m</h3>
+                        <p>Length of Mars Day</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <!-- Hero Image -->
-  <section id="hero" class="container">
-    <img src="assets/img/rocket-launch.jpg" alt="An Atlas V rocket launching a Mars rover mission into space" class="img-center" />
-  </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name Here | <a href="mailto:youremail@example.com">Report a Problem</a></p>
+            <p class="disclaimer">This website was created as a student project for educational purposes. NASA is not affiliated with or endorsing this work.</p>
+        </div>
+    </footer>
 
-  <!-- Aside / Extra Info -->
-  <aside role="complementary" aria-label="Additional information">
-    <div class="container">
-      <article class="widget">
-        <header>
-          <h2>Why Mars?</h2>
-        </header>
-        <p>Mars is the most Earth-like planet in our solar system. It has seasons, polar ice caps, and a day that lasts just 37 minutes longer than ours. Scientists believe that billions of years ago, Mars had a thicker atmosphere and liquid water on its surface—conditions that could have supported life.</p>
-        <p><a href="https://mars.nasa.gov" target="_blank" rel="noopener">Learn more at NASA's Mars Exploration Program</a></p>
-        <footer>NASA Information</footer>
-      </article>
-
-      <article class="widget overview">
-        <header>
-          <h2>Mission Timeline</h2>
-        </header>
-        <table>
-          <tbody>
-            <tr>
-              <td>Sojourner</td>
-              <td>1997</td>
-            </tr>
-            <tr>
-              <td>Spirit</td>
-              <td>2004–2010</td>
-            </tr>
-            <tr>
-              <td>Opportunity</td>
-              <td>2004–2018</td>
-            </tr>
-            <tr>
-              <td>Curiosity</td>
-              <td>2012–Present</td>
-            </tr>
-            <tr>
-              <td>Perseverance</td>
-              <td>2021–Present</td>
-            </tr>
-          </tbody>
-        </table>
-        <footer>Mission Summary</footer>
-      </article>
-    </div>
-  </aside>
-
-  <!-- Footer -->
-  <footer id="colophon" role="contentinfo">
-    <h6>&copy; 2025 Craig Conwright | <a href="mailto:cconwrigh1@ualr.edu">Contact Me</a></h6>
-    <p>This website was created as a student project for educational purposes. NASA is not affiliated with or endorsing this work.</p>
-  </footer>
-
-  <!-- JavaScript (optional, for future use) -->
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>

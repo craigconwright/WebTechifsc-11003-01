@@ -1,364 +1,557 @@
-/* ===========================================
-   NASA Mars Rovers - Layout styled like CodePen
-   Author: Craig Conwright
-   =========================================== */
+/* ===================================
+   MARS ROVERS WEBSITE - STYLE.CSS
+   Simple, Beginner-Friendly Styling
+   =================================== */
 
-/* ---------- Box Sizing ---------- */
-html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+/* === BASIC RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ---------- Responsive Images ---------- */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* ---------- Color Theme / Fonts ---------- */
+/* === ROOT VARIABLES (Colors) === */
 :root {
-  --color-primary: #1a237e;       /* Deep space blue */
-  --color-secondary: #c62828;     /* Mars red */
-  --color-accent: #ff8f00;        /* Orange accent */
-  --color-dark: #181c1f;          /* Dark background */
-  --color-light: #f2f2f2;         /* Light background */
-  --color-white: #ffffff;
-  --color-text: #333333;
-  --font-heading: "Orbitron", sans-serif;
-  --font-body: "Open Sans", sans-serif;
+    --mars-orange: #D96B43;
+    --mars-red: #C0502A;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f4f4f4;
+    --text-dark: #333;
+    --text-light: #fff;
+    --accent-gold: #F2A950;
 }
 
-/* ---------- Global Styles ---------- */
+/* === BODY === */
 body {
-  font-family: var(--font-body);
-  margin: 0;
-  background: var(--color-light);
-  color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
 }
 
-/* ---------- Utility: Container & Image Helpers ---------- */
-.container {
-  width: 80vw;
-  margin: 40px auto;
-  max-width: 900px;
-}
-
-.img-center {
-  display: block;
-  margin: 20px auto;
-  border: 1px solid #c0c0c0;
-  padding: 5px;
-}
-
-/* ---------- Header / Hero ---------- */
-
-header.primary {
-  background-color: #181c1f;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 2px 2px #000000;
-  padding: 6em 2em;
-  position: relative;
-}
-
-/* Background image overlay (use your local asset) */
-header.primary::before {
-  content: "";
-  background-image: url("../assets/img/mars-background.jpg");
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.4;
-}
-
-header.primary h1 {
-  font-size: 3.2rem;
-  margin: 20px 0;
-  position: relative;
-  font-family: var(--font-heading);
-}
-
-/* Simple text logo (no background image logo) */
-header.primary h1 a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-header.primary h1 a:hover {
-  color: var(--color-accent);
-}
-
-header.primary h2 {
-  font-family: var(--font-heading);
-  font-size: 2em;
-  margin: 20px auto 40px;
-  position: relative;
-  color: var(--color-accent);
-}
-
-/* ---------- Navigation ---------- */
-
-header.primary nav ul {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0;
-  max-width: 900px;
-  margin: 20px auto;
-}
-
-header.primary nav li {
-  list-style-type: none;
-  padding: 0;
-  width: 25%;
-}
-
-header.primary nav a:link,
-header.primary nav a:visited {
-  color: white;
-  text-decoration: none;
-  background-color: rgba(198, 40, 40, 0.7);
-  padding: 8px 16px;
-  border-radius: 10px;
-  transition: 0.6s;
-  display: block;
-  text-align: center;
-}
-
-header.primary nav a:hover,
-header.primary nav a:active,
-header.primary nav a.active {
-  background-color: var(--color-secondary);
-}
-
-/* ---------- Intro / Content ---------- */
-
-section#content {
-  padding: 4em 0;
-  background: var(--color-white);
-}
-
-section#content h2 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* ---------- Rover Articles (Cards) ---------- */
-
-section#articles {
-  background: #181c1f;
-}
-
-section#articles .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #c0c0c0;
-  padding: 0 0 4em 0;
-}
-
-section#articles h2,
-#content h2 {
-  flex: 0 0 100%;
-  color: #ffffff;
-  text-align: center;
-  font-family: var(--font-heading);
-  font-size: 2em;
-}
-
-section#articles h2 {
-  color: #ffffff;
-  text-shadow: 2px 2px #000;
-}
-
-#articles article.post {
-  width: 30%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  transition: 0.6s;
-  font-size: 0.9rem;
-  border-radius: 10px;
-  background: #ffffff;
-}
-
-#articles article.post h2 {
-  font-size: 1.4em;
-  text-shadow: none;
-  font-family: var(--font-heading);
-  color: var(--color-secondary);
-}
-
-#articles article.post:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-#articles article figcaption {
-  font-size: 0.8em;
-  color: #777;
-  text-transform: uppercase;
-  margin-top: 5px;
-}
-
-#articles .post a:link,
-#articles .post a:visited {
-  color: var(--color-secondary);
-  text-decoration: none;
-}
-
-#articles .post a:hover {
-  color: var(--color-accent);
-}
-
-#articles .post figure {
-  margin: 0 0 10px 0;
-}
-
-#articles .post img {
-  border-radius: 10px;
-}
-
-#articles ul {
-  padding: 0 20px 10px 20px;
-}
-
-#articles li {
-  margin-bottom: 10px;
-}
-
-/* ---------- Hero Image Section ---------- */
-
-#hero {
-  padding: 4em 0;
-  background: var(--color-white);
-}
-
-/* ---------- Aside / Widgets ---------- */
-
-aside[role="complementary"] {
-  background-color: #181c1f;
-  color: #ffffff;
-  padding: 2.5em 0;
-}
-
-aside .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 40px;
-}
-
-aside article.widget {
-  flex: 1;
-}
-
-aside article header h2 {
-  font-family: var(--font-heading);
-  color: var(--color-accent);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.widget.overview table {
-  font-size: 0.9em;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.widget.overview table td {
-  border-bottom: 1px solid #fff;
-  padding: 10px;
-}
-
-.widget.overview table td:nth-child(even) {
-  text-align: right;
-}
-
-aside article a:link,
-aside article a:visited {
-  color: var(--color-accent);
-  display: block;
-  margin-top: 1.2em;
-  letter-spacing: 1.2px;
-}
-
-aside article a:hover,
-aside article a:active {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-aside article footer {
-  display: none; /* Hidden like the CodePen demo */
-}
-
-/* ---------- Footer ---------- */
-
-footer#colophon {
-  background-color: #593122;
-}
-
-#colophon h6 {
-  padding: 20px;
-  margin: 0;
-  color: #fff;
-  text-align: center;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-#colophon h6 a:link,
-#colophon h6 a:visited,
-#colophon p {
-  color: #fff;
-  max-width: 900px;
-  text-align: center;
-  margin: 0 auto 10px;
-  font-size: 0.85rem;
-}
-
-/* ---------- Responsive Design ---------- */
-
-@media screen and (max-width: 600px) {
-  header.primary nav ul {
-    flex-direction: column;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  header.primary nav ul li {
-    margin-bottom: 10px;
-    width: 80%;
-    max-width: 300px;
-  }
-
-  header.primary nav ul li a {
+/* === IMAGES === */
+img {
+    max-width: 100%;
+    height: auto;
     display: block;
-  }
+}
 
-  section#articles .container {
-    flex-direction: column;
-    padding-bottom: 4em;
-  }
+/* === CONTAINER === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-  #articles article.post {
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('../img/mars-header.jpg') center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.tagline {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: var(--accent-gold);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: rgba(217, 107, 67, 0.7);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--mars-orange);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   MAIN CONTENT
+   =================================== */
+main {
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--mars-red);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--mars-orange);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.intro {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #666;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn {
+    display: inline-block;
+    background-color: var(--mars-orange);
+    color: var(--text-light);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--mars-red);
+    transform: translateY(-2px);
+}
+
+.btn-submit {
+    background-color: var(--mars-orange);
     width: 100%;
-    margin-bottom: 2em;
-  }
+    margin-top: 10px;
+    font-size: 1.1rem;
+    padding: 15px;
+}
 
-  aside .container {
+/* ===================================
+   HOME PAGE - ROVER GRID
+   =================================== */
+.rover-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.rover-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.rover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rover-card img {
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.rover-card h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.rover-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.rover-card .btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ===================================
+   STATISTICS SECTION
+   =================================== */
+.stats {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.stats h2 {
+    color: var(--text-light);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(217, 107, 67, 0.2);
+    border-radius: 10px;
+}
+
+.stat-box h3 {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 1.1rem;
+}
+
+/* ===================================
+   HISTORY PAGE - ROVER DETAILS
+   =================================== */
+.rover-detail {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rover-image {
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rover-detail ul {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+.rover-detail li {
+    margin-bottom: 10px;
+}
+
+/* ===================================
+   TABLE STYLING
+   =================================== */
+.timeline-table {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* ===================================
+   FAQ PAGE
+   =================================== */
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--mars-orange);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    color: var(--mars-red);
+    margin-bottom: 10px;
+}
+
+.resources {
+    background-color: white;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resources ul {
+    margin-left: 30px;
+}
+
+.resources li {
+    margin-bottom: 10px;
+}
+
+.resources a {
+    color: var(--mars-orange);
+    text-decoration: none;
+}
+
+.resources a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================
+   CONTACT FORM
+   =================================== */
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--mars-orange);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
     flex-direction: column;
-  }
+    gap: 10px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Success Message */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.success-message h3 {
+    color: #155724;
+    margin-bottom: 10px;
+}
+
+/* Contact Info */
+.contact-info {
+    max-width: 700px;
+    margin: 40px auto 0;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info a {
+    color: var(--mars-orange);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #aaa;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .rover-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
 }

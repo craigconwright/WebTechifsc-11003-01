@@ -1,125 +1,219 @@
-/* ===========================================
-   NASA Mars Rovers - JavaScript
-   Author: Craig Conwright
-   =========================================== */
+// ===================================
+// MARS ROVERS WEBSITE - SCRIPT.JS
+// Simple JavaScript for Beginners
+// ===================================
 
-// Wait for the page to fully load
+// Wait for the page to fully load before running JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== Contact Form Validation ==========
-    var contactForm = document.getElementById('contact-form');
+    // Get the contact form
+    const contactForm = document.getElementById('contactForm');
     
+    // Check if we're on the contact page (form exists)
     if (contactForm) {
+        // Add event listener for form submission
         contactForm.addEventListener('submit', function(event) {
             // Prevent the form from actually submitting
             event.preventDefault();
             
-            // Get form values
-            var name = document.getElementById('name').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var message = document.getElementById('message').value.trim();
-            var responseDiv = document.getElementById('form-response');
-            
-            // Simple validation
-            if (name === '') {
-                showResponse('Please enter your name.', 'error');
-                return;
+            // Validate the form
+            if (validateForm()) {
+                // If validation passes, show success message
+                showSuccessMessage();
+                // Clear the form
+                contactForm.reset();
             }
-            
-            if (email === '') {
-                showResponse('Please enter your email address.', 'error');
-                return;
-            }
-            
-            // Basic email validation
-            if (!isValidEmail(email)) {
-                showResponse('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            if (message === '') {
-                showResponse('Please enter a message.', 'error');
-                return;
-            }
-            
-            // If all validation passes, show success message
-            showResponse('Thank you, ' + name + '! Your message has been received. We will respond to ' + email + ' soon.', 'success');
-            
-            // Clear the form
-            contactForm.reset();
         });
     }
     
-    // Function to validate email format
-    function isValidEmail(email) {
-        // Simple email pattern check
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailPattern.test(email);
+    // Add smooth scrolling for anchor links
+    addSmoothScrolling();
+    
+    // Add "Back to Top" button functionality
+    addBackToTop();
+});
+
+// ===================================
+// FORM VALIDATION FUNCTION
+// ===================================
+function validateForm() {
+    // Get form field values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    
+    // Check if name is empty
+    if (name === '') {
+        alert('Please enter your name.');
+        document.getElementById('name').focus();
+        return false;
     }
     
-    // Function to show form response
-    function showResponse(message, type) {
-        var responseDiv = document.getElementById('form-response');
-        responseDiv.textContent = message;
-        responseDiv.className = type; // 'success' or 'error'
+    // Check if name is at least 2 characters
+    if (name.length < 2) {
+        alert('Name must be at least 2 characters long.');
+        document.getElementById('name').focus();
+        return false;
     }
     
-    
-    // ========== Current Year in Footer ==========
-    // Automatically update copyright year
-    var footerYear = document.querySelector('#site-footer p');
-    if (footerYear) {
-        var currentYear = new Date().getFullYear();
-        footerYear.innerHTML = footerYear.innerHTML.replace('2025', currentYear);
+    // Check if email is empty
+    if (email === '') {
+        alert('Please enter your email address.');
+        document.getElementById('email').focus();
+        return false;
     }
     
+    // Simple email validation
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        document.getElementById('email').focus();
+        return false;
+    }
     
-    // ========== Smooth Scroll for Internal Links ==========
-    var internalLinks = document.querySelectorAll('a[href^="#"]');
+    // Check if subject is selected
+    if (subject === '') {
+        alert('Please select a subject.');
+        document.getElementById('subject').focus();
+        return false;
+    }
     
-    internalLinks.forEach(function(link) {
+    // Check if message is empty
+    if (message === '') {
+        alert('Please enter a message.');
+        document.getElementById('message').focus();
+        return false;
+    }
+    
+    // Check if message is at least 10 characters
+    if (message.length < 10) {
+        alert('Message must be at least 10 characters long.');
+        document.getElementById('message').focus();
+        return false;
+    }
+    
+    // All validations passed
+    return true;
+}
+
+// ===================================
+// EMAIL VALIDATION HELPER FUNCTION
+// ===================================
+function isValidEmail(email) {
+    // Simple email pattern check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+// ===================================
+// SHOW SUCCESS MESSAGE FUNCTION
+// ===================================
+function showSuccessMessage() {
+    // Hide the form
+    const form = document.getElementById('contactForm');
+    form.style.display = 'none';
+    
+    // Show the success message
+    const successMessage = document.getElementById('successMessage');
+    successMessage.style.display = 'block';
+    
+    // Scroll to the success message
+    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // Optional: Reset form and show it again after 5 seconds
+    setTimeout(function() {
+        successMessage.style.display = 'none';
+        form.style.display = 'block';
+        form.reset();
+    }, 5000);
+}
+
+// ===================================
+// SMOOTH SCROLLING FOR ANCHOR LINKS
+// ===================================
+function addSmoothScrolling() {
+    // Get all links that start with #
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    // Add click event to each anchor link
+    anchorLinks.forEach(function(link) {
         link.addEventListener('click', function(event) {
-            var targetId = this.getAttribute('href');
+            // Get the target section id
+            const targetId = this.getAttribute('href');
             
-            if (targetId !== '#') {
-                var targetElement = document.querySelector(targetId);
+            // Check if target exists
+            if (targetId !== '#' && document.querySelector(targetId)) {
+                event.preventDefault();
                 
-                if (targetElement) {
-                    event.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                // Scroll to the target smoothly
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     });
+}
+
+// ===================================
+// BACK TO TOP BUTTON
+// ===================================
+function addBackToTop() {
+    // Create the button element
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '↑ Top';
+    backToTopBtn.setAttribute('id', 'backToTop');
+    backToTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #D96B43;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    `;
     
+    // Add the button to the page
+    document.body.appendChild(backToTopBtn);
     
-    // ========== Highlight Active Navigation Link ==========
-    // Get current page filename
-    var currentPage = window.location.pathname.split('/').pop();
-    
-    // If on root, default to index.html
-    if (currentPage === '' || currentPage === '/') {
-        currentPage = 'index.html';
-    }
-    
-    // Find and highlight the matching nav link
-    var navLinks = document.querySelectorAll('.main-header nav a');
-    
-    navLinks.forEach(function(link) {
-        var linkPage = link.getAttribute('href');
-        
-        if (linkPage === currentPage) {
-            link.classList.add('active');
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
         } else {
-            link.classList.remove('active');
+            backToTopBtn.style.display = 'none';
         }
     });
     
+    // Add hover effect
+    backToTopBtn.addEventListener('mouseenter', function() {
+        this.style.backgroundColor = '#C0502A';
+        this.style.transform = 'translateY(-2px)';
+    });
     
-    // ========== Console Welcome Message ==========
-    console.log('Welcome to NASA Mars Rovers!');
-    console.log('This website was created as a student project.');
+    backToTopBtn.addEventListener('mouseleave', function() {
+        this.style.backgroundColor = '#D96B43';
+        this.style.transform = 'translateY(0)';
+    });
     
-});
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ===================================
+// BONUS: LOG PAGE VISIT (OPTIONAL)
+// ===================================
+// This is just to show JavaScript is working
+console.log('Mars Rovers Website JavaScript Loaded Successfully! 🚀');
+console.log('Current Page:', document.title);

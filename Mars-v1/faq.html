@@ -1,126 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>NASA Mars Rovers | FAQ</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Frequently asked questions about NASA's Mars rover missions and Martian exploration" />
-  <meta name="keywords" content="NASA, Mars rovers, FAQ, questions, space exploration" />
-  <meta name="author" content="Craig Conwright" />
-  <meta name="robots" content="noindex" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about NASA's Mars Rovers">
+    <meta name="author" content="Your Name Here">
+    <meta name="robots" content="noindex">
+    <title>FAQ - NASA Mars Rovers</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- Header / Hero -->
-  <header role="banner" class="primary">
-    <h1><a href="index.html">NASA Mars Rovers</a></h1>
-    <h2>Robotic Explorers on the Red Planet</h2>
-    <nav role="navigation" aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="history.html">Mission History</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- FAQ Section -->
-    <section id="faq" class="container">
-      <h2>Frequently Asked Questions</h2>
-
-      <article class="faq-item">
-        <h3>How long does it take to get to Mars?</h3>
-        <p>The journey from Earth to Mars typically takes between 7 to 9 months, depending on the alignment of the two planets and the spacecraft's trajectory. Mars and Earth are closest to each other (about 34 million miles) approximately every 26 months, which is when NASA launches most Mars missions.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>How do the rovers communicate with Earth?</h3>
-        <p>Mars rovers communicate through NASA's Deep Space Network (DSN), a collection of large radio antennas located in California, Spain, and Australia. Signals can travel directly to Earth or be relayed through orbiters circling Mars. Due to the distance, it takes between 4 and 24 minutes for a signal to travel between Mars and Earth, depending on planetary positions.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>What powers the Mars rovers?</h3>
-        <p>Curiosity and Perseverance use a Multi-Mission Radioisotope Thermoelectric Generator (MMRTG), which converts heat from the decay of plutonium-238 into electricity. This provides reliable power day and night, regardless of dust storms. Earlier rovers like Spirit and Opportunity used solar panels, which limited their operations during dusty conditions and winter months.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>Can humans survive on Mars?</h3>
-        <p>Currently, Mars is inhospitable to humans without significant life support systems. The atmosphere is 95% carbon dioxide with virtually no oxygen. Surface temperatures average -80°F (-62°C) and can drop to -195°F (-125°C). The thin atmosphere also provides little protection from harmful solar and cosmic radiation. However, NASA and other organizations are developing technologies to make human Mars missions possible in the future.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>Has NASA found life on Mars?</h3>
-        <p>As of now, NASA has not found definitive evidence of life on Mars. However, rovers have discovered organic molecules, evidence of ancient water, and conditions that could have supported microbial life billions of years ago. The Perseverance rover is specifically designed to search for biosignatures—chemical or structural signs that life may have once existed. In 2024, it collected a rock sample containing intriguing chemical patterns that scientists are eager to study on Earth.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>Why does Mars appear red?</h3>
-        <p>Mars gets its reddish appearance from iron oxide (rust) in the soil and dust. Billions of years ago, iron in Martian rocks was oxidized by water and oxygen in the atmosphere. Wind has spread this rusty dust across the entire planet, giving Mars its distinctive color both from the surface and from space.</p>
-      </article>
-
-      <article class="faq-item">
-        <h3>How fast can the rovers drive?</h3>
-        <p>Mars rovers move very slowly to avoid damage and ensure safety. Perseverance has a top speed of about 0.1 miles per hour (152 meters per hour). Curiosity is slightly slower. While this seems slow, the rovers use autonomous navigation to avoid obstacles and can cover significant distances over time. Opportunity traveled 28 miles during its 15-year mission.</p>
-      </article>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="container">
-      <h2>Have a Question?</h2>
-      <p>Send us your questions about Mars rovers and space exploration. We'd love to hear from you!</p>
-
-      <form id="contact-form" action="#" method="post">
-        <div class="form-group">
-          <label for="name">Your Name: <span class="required">*</span></label>
-          <input type="text" id="name" name="name" required placeholder="Enter your name">
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-content">
+            <h1>NASA Mars Rovers</h1>
+            <p class="tagline">Robotic Explorers on the Red Planet</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">Mission History</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="form-group">
-          <label for="email">Your Email: <span class="required">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email">
+    <!-- Main Content -->
+    <main>
+        <section class="page-content">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="intro">Have questions about NASA's Mars rovers? Find answers to the most common questions below.</p>
+
+                <!-- FAQ Items -->
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>How long does it take to get to Mars?</h3>
+                        <p>The journey to Mars typically takes between 6 to 9 months, depending on the positions of Earth and Mars in their orbits. The distance between the two planets varies from about 34 million miles (at closest approach) to over 250 million miles (at farthest).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How do rovers communicate with Earth?</h3>
+                        <p>Rovers communicate with Earth using radio waves through NASA's Deep Space Network. They can send signals directly to Earth or relay them through Mars orbiters like the Mars Reconnaissance Orbiter. It takes between 5 to 20 minutes for a signal to travel from Mars to Earth, depending on their distance.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What powers the Mars rovers?</h3>
+                        <p>Different rovers use different power sources. Earlier rovers like Spirit and Opportunity used solar panels to generate electricity. Newer rovers like Curiosity and Perseverance use nuclear power from radioisotope thermoelectric generators (RTGs), which convert heat from radioactive decay into electricity. This allows them to operate regardless of weather or sunlight conditions.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How fast do Mars rovers travel?</h3>
+                        <p>Mars rovers move very slowly for safety reasons. Curiosity and Perseverance have a top speed of about 0.1 mph (0.16 km/h), and typically travel around 660 feet (200 meters) per day. The slow speed allows the rover to carefully navigate obstacles and avoid hazards.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What is the temperature on Mars?</h3>
+                        <p>Mars is much colder than Earth. Average temperatures are around -81°F (-63°C), but can range from -195°F (-125°C) near the poles in winter to 70°F (20°C) at the equator during summer days. The thin atmosphere means temperatures can vary dramatically between day and night.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Have we found signs of life on Mars?</h3>
+                        <p>We have not found definitive proof of past or present life on Mars. However, rovers have discovered evidence that Mars once had liquid water and conditions that could have supported microbial life. The search continues, with Perseverance collecting samples that may eventually be returned to Earth for detailed analysis.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How do scientists control the rovers?</h3>
+                        <p>Due to the communication delay, rovers cannot be controlled in real-time like a remote control car. Instead, scientists and engineers at NASA's Jet Propulsion Laboratory send a sequence of commands each day. The rover executes these commands autonomously, using its onboard computers and hazard-avoidance systems to navigate safely.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Why is Mars red?</h3>
+                        <p>Mars appears red because its surface is covered in iron oxide, commonly known as rust. Over billions of years, iron in the Martian soil oxidized (combined with oxygen), creating the distinctive reddish color we see from Earth.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What is a "sol"?</h3>
+                        <p>A "sol" is a Martian day. One sol is slightly longer than an Earth day, lasting 24 hours and 39 minutes. Mars rover missions count time in sols rather than Earth days. For example, Opportunity operated for 5,352 sols (about 5,498 Earth days).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How much did the Mars rovers cost?</h3>
+                        <p>Mission costs vary significantly. The Mars Exploration Rover mission (Spirit and Opportunity) cost about $400 million each. The Curiosity mission cost approximately $2.5 billion including development, launch, and operations. The Perseverance mission cost about $2.7 billion.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can the rovers find fossils?</h3>
+                        <p>While rovers have instruments to detect organic molecules and biosignatures, finding actual fossils would be extremely difficult. Most rover instruments analyze the chemical composition of rocks rather than looking for macroscopic fossils. However, Perseverance is collecting samples that will hopefully be returned to Earth, where scientists could examine them for any signs of ancient life, including possible microfossils.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Will humans ever go to Mars?</h3>
+                        <p>NASA and other space agencies are actively working toward sending humans to Mars, possibly in the 2030s or 2040s. Mars rovers are helping pave the way by testing technologies, identifying resources like water ice, and studying the Martian environment to help prepare for human exploration.</p>
+                    </div>
+                </div>
+
+                <!-- Additional Resources -->
+                <div class="resources">
+                    <h3>Want to Learn More?</h3>
+                    <p>Visit these official NASA resources for more information:</p>
+                    <ul>
+                        <li><a href="https://mars.nasa.gov/" target="_blank" rel="noopener">NASA Mars Exploration Program</a></li>
+                        <li><a href="https://www.jpl.nasa.gov/" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a></li>
+                        <li><a href="https://science.nasa.gov/mars/" target="_blank" rel="noopener">NASA Mars Science</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name Here | <a href="mailto:youremail@example.com">Report a Problem</a></p>
+            <p class="disclaimer">This website was created as a student project for educational purposes. NASA is not affiliated with or endorsing this work.</p>
         </div>
+    </footer>
 
-        <div class="form-group">
-          <label for="subject">Subject:</label>
-          <select id="subject" name="subject">
-            <option value="general">General Question</option>
-            <option value="rovers">About the Rovers</option>
-            <option value="missions">About Missions</option>
-            <option value="website">About This Website</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Your Message: <span class="required">*</span></label>
-          <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-        </div>
-
-        <button type="submit" id="submit-btn">Send Message</button>
-      </form>
-
-      <div id="form-response" class="hidden"></div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer id="colophon" role="contentinfo">
-    <h6>&copy; 2025 Craig Conwright | <a href="mailto:cconwrigh1@ualr.edu">Contact Me</a></h6>
-    <p>This website was created as a student project for educational purposes. NASA is not affiliated with or endorsing this work.</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>

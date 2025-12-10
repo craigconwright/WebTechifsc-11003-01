@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NASA Mars Rovers | Contact</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact us about NASA's Mars Rovers" />
+  <meta name="author" content="Craig Conwright" />
+  <meta name="robots" content="noindex" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Header / Hero Banner -->
+  <header role="banner" class="primary">
+    <h1><a href="index.html">Mars Rovers</a></h1>
+    <h2>Exploring the Red Planet</h2>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">Mission History</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="content" class="container">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback about this Mars Rovers website? Fill out the form below and we'll get back to you.</p>
+
+    <section aria-labelledby="contact-form-heading">
+      <h3 id="contact-form-heading">Send a Message</h3>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required>
+            <option value="">-- Select a Subject --</option>
+            <option value="general">General Inquiry</option>
+            <option value="rovers">Question about Rovers</option>
+            <option value="missions">Mission Information</option>
+            <option value="feedback">Website Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <span>Which rover interests you most?</span>
+          <div class="radio-group">
+            <label><input type="radio" name="interest" value="curiosity" /> Curiosity</label>
+            <label><input type="radio" name="interest" value="perseverance" /> Perseverance</label>
+            <label><input type="radio" name="interest" value="opportunity" /> Opportunity</label>
+            <label><input type="radio" name="interest" value="spirit" /> Spirit</label>
+            <label><input type="radio" name="interest" value="all" /> All of them!</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="newsletter" name="newsletter" />
+            Subscribe to Mars mission updates
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-submit">Send Message</button>
+      </form>
+
+      <div id="successMessage" class="success-message" style="display: none;">
+        <h3>✓ Message Sent Successfully!</h3>
+        <p>Thank you for contacting us. We'll get back to you soon.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-info-heading" class="contact-info">
+      <h3 id="contact-info-heading">Other Ways to Connect</h3>
+      <p><strong>Email:</strong> <a href="mailto:cconwrigh1@ualr.edu">cconwrigh1@ualr.edu</a></p>
+      <p><strong>Note:</strong> This is a student project website. For official NASA inquiries, please visit
+        <a href="https://www.nasa.gov/contact/" target="_blank" rel="noopener">NASA's official contact page</a>.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="colophon" role="contentinfo">
+    <h6>&copy; 2025 Craig Conwright | <a href="mailto:cconwrigh1@ualr.edu">Report a Problem</a></h6>
+    <p>This website was created as a student project for educational purposes. NASA is not affiliated with or endorsing this work.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
